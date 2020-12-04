@@ -447,7 +447,7 @@ user_pref("_user.js.parrot", "0800 syntax error: the parrot's ceased to be!");
  * dropdown, or using keyword search shortcuts you configure in options (e.g. 'd' for DuckDuckGo)
  * [SETUP-CHROME] If you don't, or rarely, type URLs, or you use a default search
  * engine that respects privacy, then you probably don't need this ***/
-user_pref("keyword.enabled", false);
+user_pref("keyword.enabled", true);
 /* 0802: disable location bar domain guessing
  * domain guessing intercepts DNS "hostname not found errors" and resends a
  * request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
@@ -470,8 +470,8 @@ user_pref("layout.css.visited_links_enabled", false);
 /* [NOTE] Both must be true for the location bar to work
  * [SETUP-CHROME] Change these if you trust and use a privacy respecting search engine
  * [SETTING] Search>Provide search suggestions | Show search suggestions in address bar results ***/
-user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.urlbar.suggest.searches", true);
 /* 0810: disable location bar making speculative connections [FF56+]
  * [1] https://bugzilla.mozilla.org/1348275 ***/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
@@ -482,9 +482,9 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 /* 0850a: disable location bar suggestion types
  * [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest ***/
-   // user_pref("browser.urlbar.suggest.history", false);
-   // user_pref("browser.urlbar.suggest.bookmark", false);
-   // user_pref("browser.urlbar.suggest.openpage", false);
+user_pref("browser.urlbar.suggest.history", true);
+user_pref("browser.urlbar.suggest.bookmark", true);
+user_pref("browser.urlbar.suggest.openpage", true);
    // user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 /* 0850c: disable location bar dropdown
  * This value controls the total number of entries to appear in the location bar dropdown
@@ -919,7 +919,7 @@ user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
  * [SETUP-WEB] WebRTC can leak your IP address from behind your VPN, but if this is not
  * in your threat model, and you want Real-Time Communication, this is the pref for you
  * [1] https://www.privacytools.io/#webrtc ***/
-user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.enabled", true);
 /* 2002: limit WebRTC IP leaks if using WebRTC
  * In FF70+ these settings match Mode 4 (Mode 3 in older versions), see [3]
  * [TEST] https://browserleaks.com/webrtc
@@ -940,9 +940,9 @@ user_pref("webgl.enable-webgl2", false);
 user_pref("webgl.min_capability_mode", true);
 user_pref("webgl.disable-fail-if-major-performance-caveat", true);
 /* 2022: disable screensharing ***/
-user_pref("media.getusermedia.screensharing.enabled", false);
-user_pref("media.getusermedia.browser.enabled", false);
-user_pref("media.getusermedia.audiocapture.enabled", false);
+user_pref("media.getusermedia.screensharing.enabled", true);
+user_pref("media.getusermedia.browser.enabled", true);
+user_pref("media.getusermedia.audiocapture.enabled", true);
 /* 2024: set a default permission for Camera/Microphone [FF58+]
  * 0=always ask (default), 1=allow, 2=block
  * [SETTING] to add site exceptions: Page Info>Permissions>Use the Camera/Microphone
@@ -959,7 +959,7 @@ user_pref("media.getusermedia.audiocapture.enabled", false);
  * Firefox's Autoplay Policy Documentation [PDF] is linked below via SUMO
  * [NOTE] If you have trouble with some video sites, then add an exception (see 2030)
  * [1] https://support.mozilla.org/questions/1293231 ***/
-user_pref("media.autoplay.blocking_policy", 2);
+user_pref("media.autoplay.blocking_policy", 0);
 
 /*** [SECTION 2200]: WINDOW MEDDLING & LEAKS / POPUPS ***/
 user_pref("_user.js.parrot", "2200 syntax error: the parrot's 'istory!");
@@ -1046,7 +1046,7 @@ user_pref("_user.js.parrot", "2400 syntax error: the parrot's kicked the bucket!
 /* 2404: disable clipboard commands (cut/copy) from "non-privileged" content [FF41+]
  * this disables document.execCommand("cut"/"copy") to protect your clipboard
  * [1] https://bugzilla.mozilla.org/1170911 ***/
-user_pref("dom.allow_cut_copy", false);
+user_pref("dom.allow_cut_copy", true);
 /* 2405: disable "Confirm you want to leave" dialog on page close
  * Does not prevent JS leaks of the page close event.
  * [1] https://developer.mozilla.org/docs/Web/Events/beforeunload
@@ -1106,7 +1106,7 @@ user_pref("media.navigator.enabled", false);
    // user_pref("layers.acceleration.disabled", true);
 /* 2510: disable Web Audio API [FF51+]
  * [1] https://bugzilla.mozilla.org/1288359 ***/
-user_pref("dom.webaudio.enabled", false);
+user_pref("dom.webaudio.enabled", true);
 /* 2517: disable Media Capabilities API [FF63+]
  * [WARNING] This *may* affect media performance if disabled, no one is sure
  * [1] https://github.com/WICG/media-capabilities
@@ -1329,7 +1329,7 @@ user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.downloads", true); // see note above
 user_pref("privacy.clearOnShutdown.formdata", true); // Form & Search History
-user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
+user_pref("privacy.clearOnShutdown.history", false); // Browsing & Download History
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Offline Website Data
 user_pref("privacy.clearOnShutdown.sessions", true); // Active Logins
 user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
